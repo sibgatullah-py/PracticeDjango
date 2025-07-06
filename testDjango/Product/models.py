@@ -5,7 +5,8 @@ from django.db import models
 class Products(models.Model):
     # these are fields in database 
     title   = models.CharField(max_length=60)
-    details = models.TextField(default = 'This is cool!')
+    details = models.TextField(blank = False, null = False)
     price   = models.DecimalField(decimal_places=3,max_digits=10000)
-    summery = models.TextField(blank = True)
+    summery = models.TextField(blank = False)
+    Featured= models.BooleanField(blank=True)
     
