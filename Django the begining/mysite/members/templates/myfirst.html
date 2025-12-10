@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>Welcome to my first Django project!</p>
+
+
+    <ul>
+        {% for x in mymembers %} <!-- The percentage in carly bracket are Django tags telling Django to perform some programming logic -->
+            <li>{{ x.firstname }} {{ x.lastname }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
