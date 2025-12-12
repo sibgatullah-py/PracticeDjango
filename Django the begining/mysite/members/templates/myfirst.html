@@ -12,10 +12,19 @@
     <p>Welcome to our members section. You can see all our members here.</p>
 
 
-    <ul>
-        {% for x in mymembers %} <!-- The percentage in carly bracket are Django tags telling Django to perform some programming logic -->
-            <li><a href="details/{{ x.id }}">{{x.firstname}} {{x.lastname}}</li>
-        {% endfor %}
-    </ul>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+
+            {% for x in mymembers %} <!-- The percentage in carly bracket are Django tags telling Django to perform some programming logic -->
+                <tr>
+                    <td>{{x.id}}</td>
+                    <td><a href="details/{{ x.id }}">{{x.firstname}} {{x.lastname}}</td>
+                </tr>
+                
+            {% endfor %}
+        </table>
 
 {% endblock content %}

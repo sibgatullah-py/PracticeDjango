@@ -20,6 +20,16 @@
   {%else%}
     <h1>No</h1>
   {% endif %}
+
+  <ul>
+    
+    {% for x in emptyobject %}
+      <li>{{x.firstname}}</li>
+    {% empty %}
+      <li>No members</li>
+    {% endfor %}
+      
+  </ul>
   
 {% endblock %}
 
