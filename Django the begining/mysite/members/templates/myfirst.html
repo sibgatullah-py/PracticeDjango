@@ -22,8 +22,32 @@
                 <tr>
                     <td>{{x.id}}</td>
                     <td><a href="details/{{ x.id }}">{{x.firstname}} {{x.lastname}}</td>
-                </tr>
-                
+                </tr>               
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <form action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+            
+            <input type="text" name="firstname" placeholder="Enter firstname">
+
+            <button type="submit">Submit</button>
+        </form>
+
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+
+            {% for x in data %} <!-- The percentage in carly bracket are Django tags telling Django to perform some programming logic -->
+                <tr>
+                    <td>{{x.id}}</td>
+                    <td><a href="{% url 'details' x.id %}">{{x.firstname}} {{x.lastname}}</td>
+                </tr>               
             {% endfor %}
         </table>
 

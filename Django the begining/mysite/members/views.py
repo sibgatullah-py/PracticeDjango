@@ -31,4 +31,13 @@ def testing(request):
         'x':['Apple','Banana','Cherry'],
         'y':['Apple','Banana','Cherry'],
     }
-    return HttpResponse(template.render(request,context))
+    return HttpResponse(template.render(context, request))
+
+def search(request):
+    # kept for backward compatibility but not used by template anymore
+    mydata = Member.objects.none()
+    if request.method == "POST":
+        firstname = request.POST.get('firstname')
+        if firstname:
+            mydata = Member.objects.filter(firstname__icontains=firstname).values()
+    return render(request, 'myfirst.html', {'data': mydata})
