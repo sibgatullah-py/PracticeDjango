@@ -6,7 +6,7 @@ from .models import Member
 
 
 def members(request):
-    mymembers = Member.objects.all().values() # .values() converts each row into a python dictionary instead of a model instance
+    mymembers = Member.objects.all().order_by('firstname').values() # .values() converts each row into a python dictionary instead of a model instance
     template = loader.get_template('myfirst.html')
     context = {
         'mymembers': mymembers,
