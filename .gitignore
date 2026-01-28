@@ -1,0 +1,69 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# -------------------------
+# Virtual Environment
+# -------------------------
+venv/
+env/
+.venv/
+ENV/
+
+# -------------------------
+# Django stuff
+# -------------------------
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media & static (if generated)
+media/
+staticfiles/
+
+# -------------------------
+# Environment variables
+# -------------------------
+.env
+.env.local
+.env.production
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Test / Coverage
+# -------------------------
+.coverage
+htmlcov/
+.pytest_cache/
+
+# -------------------------
+# Build / Distribution
+# -------------------------
+build/
+dist/
+*.egg-info/
+
+# -------------------------
+# Docker (optional)
+# -------------------------
+docker-compose.override.yml
+
