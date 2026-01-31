@@ -8,7 +8,8 @@ def send_email_token(email, token):
     Sends a verification email to the user.
     In development, prints the email in console.
     """
-    verification_link = f"http://127.0.0.1:8000/verify/{token}/"
+    verification_link = f"{settings.SITE_URL}/verify/{token}/"
+
     
     subject = "Verify your account"
     message = f"Hello!\n\nClick the link below to verify your account:\n\n{verification_link}"

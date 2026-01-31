@@ -30,6 +30,8 @@ def signup_view(request):
                 email=email,
                 password=password
             )
+            
+            user.is_active= False
 
             profile = Profile.objects.create(
                 user=user,
@@ -46,30 +48,16 @@ def signup_view(request):
 
     return render(request, "home/form.html", {"form": form})
         
-        
-
-# def login_view(request):
-#     form = LoginForm()   # ← MUST have ()
-
-#     if request.method == "POST":
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#         user_obj = User(username = email)
-#         user_obj.set_password(password)
-#         p_obj = Profile.objects.create(
-#             user = user_obj,
-#             email_token = str(uuid.uuid4())
-#         )
-#         send_email_token(email, p_obj.email_token)
-
-#     return render(request, "home/form.html", {
-#         "form": form
-#     })
     
 def verify(request, token):
     try:
         obj = Profile.objects.get(email_token=token)
+        
+        if obj.is_verified:
+            return HttpResponse("Already verified")
+        
         obj.is_verified = True
+        obj.user.is_active = True
         obj.save()
         return redirect('home')
 
